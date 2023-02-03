@@ -1,10 +1,28 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @user %>
+<h1> User's Info</h1>
+
+<div class="usercard">
+   <img class="profilepic" src="<%= @user.photo %>" alt="user image"/>
+  <div class="usernan">
+  <h2 class="username"><%= @user.name %></h2>
+  <h4 class="postno">Attendance: <%= @checkins.length%> </h4>
+  <h4 class="postno">Events: </h4>
+  
+<%@events.each do |event|%>
+ 
+      <div class="post">
+      <div class="posthead">
+        <h4><%= event.name%></h4>
+      </div>
+        <p><%= event.location%></p>
+       </div>
+
+    <%end%>
+  </div>
+</div>
 
 <div>
   <%= link_to "Edit this user", edit_user_path(@user) %> |
   <%= link_to "Back to users", users_path %>
-
-  <%= button_to "Destroy this user", @user, method: :delete %>
 </div>
