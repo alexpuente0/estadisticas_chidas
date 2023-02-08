@@ -1,5 +1,5 @@
 class CheckinsController < ApplicationController
-    before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def new
     @checkin = Checkin.new
@@ -11,8 +11,7 @@ class CheckinsController < ApplicationController
       redirect_to event_path(@checkin.event)
     else
       redirect_to event_path(@checkin.event),
-      notice: 'You have already checked in to this event.'
+                  notice: 'You have already checked in to this event.'
     end
   end
- 
 end

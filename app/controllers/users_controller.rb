@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
- 
+
   # GET /users or /users.json
   def index
     @users = User.all
@@ -21,17 +21,17 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1 or /users/1.json
   def update
     @user = User.find(params[:id])
-     if @user.update(user_params)
-        redirect_to user_path(@user)
-      else
-        render :edit
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      render :edit
     end
   end
 
   private
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:id, :name, :photo)
-    end
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:id, :name, :photo)
+  end
 end

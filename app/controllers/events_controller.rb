@@ -23,12 +23,11 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
 
     if @event.save
-        redirect_to events_path, :notice => "Event was successfully created."
+      redirect_to events_path, notice: 'Event was successfully created.'
     else
-        render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
-  
 
   # PATCH/PUT /events/1 or /events/1.json
   def update
@@ -42,12 +41,12 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @event = Event.find(params[:id])    
+    @event = Event.find(params[:id])
   end
 
   private
 
-    # Only allow a list of trusted parameters through.
+  # Only allow a list of trusted parameters through.
   def event_params
     params.require(:event).permit(:id, :name, :date, :location, :image)
   end

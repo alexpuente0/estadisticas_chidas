@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-has_many :checkins
-has_many :events, through: :checkins
+  has_many :checkins
+  has_many :events, through: :checkins
 end
