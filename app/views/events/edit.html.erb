@@ -1,0 +1,21 @@
+<h1>Editing event</h1>
+
+<%= form_with model: @event, url: event_path, method: :patch do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <%= f.label :date %>
+  <%= f.text_field :date %>
+  <br>
+  <%= f.label :image%>
+  <%= f.text_field :image %>
+  <%= f.submit "Edit" %>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Show this event", @event %> |
+  <%= link_to "Back to events", events_path %>
+</div>

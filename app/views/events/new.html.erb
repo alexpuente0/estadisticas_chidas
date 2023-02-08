@@ -1,0 +1,20 @@
+<h1>New event</h1>
+
+<%= form_with model: @event, method: :post do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <%= f.label :date %>
+  <%= f.text_field :date %>
+  <br>
+  <%= f.label :image%>
+  <%= f.text_field :image %>
+  <%= f.submit "Create" %>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Back to events", events_path %>
+</div>

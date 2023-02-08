@@ -1,0 +1,15 @@
+<h1>Edit User</h1>
+
+<%= form_with model: @user, url: user_path, method: :patch do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :photo %>
+  <%= f.text_field :photo %>
+  <%= f.submit "Edit" %>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Back to users", users_path %>
+</div>
