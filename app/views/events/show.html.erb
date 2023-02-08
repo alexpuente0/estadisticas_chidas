@@ -1,10 +1,38 @@
-<p style="color: green"><%= notice %></p>
 
-<%= render @event %>
+
+<h1>Event's Info</h1>
+
+<div class="eventcard">
+  <div class="eventnan">
+    <h2 class="eventname"><%= @event.name %></h2>
+    
+    <%=form_with url: event_checkins_path(@event.id) do |form|%>
+    <%= form.submit "Check In", class: "buttonlink" %>
+  <%end%>
+
+    <h4 class="eventno">Location: <%= @event.location%> </h4>
+    <h4 class="eventno">Date: <%= @event.date%> (<%= @event.id %>)</h4>
+  </div>
+
+  <div>
+    <h4 class="eventno">Attendees: </h4>
+    <ul>
+    <% @checkins.each do |checkin| %>  
+      <li><%= checkin.user.name%></li>
+    <%end%>
+    </ul>
+  </div>
+
+  <div class="eventpic">
+    <img class="eventpic" src="<%= @event.image %>" alt="Image"/>
+  </div>
 
 <div>
   <%= link_to "Edit this event", edit_event_path(@event) %> |
   <%= link_to "Back to events", events_path %>
-
-  <%= button_to "Destroy this event", @event, method: :delete %>
 </div>
+
+<p style="color: green"><%= notice %></p>
+
+</div>
+
