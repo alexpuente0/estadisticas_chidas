@@ -1,7 +1,14 @@
 <div class="toptext">
   <h1> List of Users </h1>
 
- 
+<%if can? :update, @user %>
+<h3>
+<%= link_to "Edit Your User", edit_user_path(@user) %> 
+<h3>
+<br>
+<hr>
+<%end%>
+
 </div>
 
 <% @users.each do |user| %>
@@ -15,4 +22,6 @@
   <% end %> 
 <% end %> 
 
- <%= link_to "Back to events", events_path %>
+ <%= link_to "Back to events", events_path %> |
+  <%= render 'shared/sessions'%>
+ 

@@ -11,6 +11,18 @@
   </head>
 
   <body>
+
+  <% if user_signed_in? %>
+  <% if current_user.role == 'admin' %>
+    <span> 
+    Welcome, <%= current_user.name %>! 
+    </span>
+  <% else %>
+    <span> Welcome, <%= current_user.name %>(as guest)! </span>
+  <% end %>
+    <%end %>
+  </p>
+
     <%= yield %>
   </body>
 </html>

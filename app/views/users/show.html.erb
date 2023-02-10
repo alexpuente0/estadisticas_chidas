@@ -6,6 +6,8 @@
    <img class="profilepic" src="<%= @user.photo %>" alt="user image"/>
   <div class="usernan">
   <h2 class="username"><%= @user.name %></h2>
+  <h4 class="postno">Role: <%= @user.role%> </h4>
+
   <h4 class="postno">Attendance: <%= @checkins.length%> </h4>
   <h4 class="postno">Events: </h4>
   
@@ -23,7 +25,8 @@
 </div>
 
 <div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %> |
-  <%= link_to "Back to events", events_path %>
+  <%= link_to "Back to All Users", users_path %> |
+  <%= link_to "Back to events", events_path %> |
+  <%= render 'shared/sessions'%>
 </div>
+

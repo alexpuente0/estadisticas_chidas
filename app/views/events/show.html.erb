@@ -6,8 +6,10 @@
   <div class="eventnan">
     <h2 class="eventname"><%= @event.name %></h2>
     
+    <% if can? :post, @checkin %>
     <%=form_with url: event_checkins_path(@event.id) do |form|%>
     <%= form.submit "Check In", class: "buttonlink" %>
+    <%end%>
   <%end%>
 
     <h4 class="eventno">Location: <%= @event.location%> </h4>
@@ -26,11 +28,20 @@
   <div class="eventpic">
     <img class="eventpic" src="<%= @event.image %>" alt="Image"/>
   </div>
+ <br>
 
 <div>
+
+
+    <%= link_to "Back to events", events_path %>
+  <% if current_user.present? && current_user.role == "admin" %>|
   <%= link_to "Edit this event", edit_event_path(@event) %> |
-  <%= link_to "Back to events", events_path %>
-</div>
+  <%end%>
+
+    <%= link_to "View Users", users_path %> |
+
+<%= render 'shared/sessions'%>
+
 
 <p style="color: green"><%= notice %></p>
 

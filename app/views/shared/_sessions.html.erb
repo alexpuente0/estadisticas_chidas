@@ -1,0 +1,6 @@
+
+<% if current_user.present?%>
+<%= link_to "Logout👋", destroy_user_session_path  %>
+<%else%>
+<%= link_to "Log In", new_user_session_path %>
+<%end%>
