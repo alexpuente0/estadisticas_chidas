@@ -5,7 +5,7 @@ ruby '3.1.2'
 
 gem 'devise'
 
-gem 'bullet'
+gem 'bullet', '~> 7.0'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def show
     @user = User.where(id: params[:id]).first    
     @checkins = @user.checkins
-    @events = @user.events
+    @events = @user.checkins.includes(:event).map(&:event)
   end
 
   # GET /users/1/edit

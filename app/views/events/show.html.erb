@@ -19,7 +19,7 @@
   <div>
     <h4 class="eventno">Attendees: </h4>
     <ul>
-    <% @checkins.each do |checkin| %>  
+      <% @checkins.includes(:user).each do |checkin| %>   
       <li><%= checkin.user.name%></li>
     <%end%>
     </ul>

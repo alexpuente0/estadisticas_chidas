@@ -15,10 +15,10 @@
   <% if user_signed_in? %>
   <% if current_user.role == 'admin' %>
     <span> 
-    Welcome, <%= current_user.name %>! 
+    -- <%= current_user.name %>'s Account --
     </span>
   <% else %>
-    <span> Welcome, <%= current_user.name %>(as guest)! </span>
+    <span> You are logged in as a Guest User. Please look around freely. </span>
   <% end %>
     <%end %>
   </p>
